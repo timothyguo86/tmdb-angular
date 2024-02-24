@@ -1,0 +1,68 @@
+.slider {
+  height: 35rem;
+  position: relative;
+  .slide {
+    height: 35rem;
+    position: relative;
+    width: 100%;
+
+    &-bg {
+      height: 35rem;
+      position: relative;
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+      &::after {
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    &-pane {
+      color: #fff;
+      left: 5rem;
+      position: absolute;
+      top: 5rem;
+      .title {
+        font-size: 2.5rem;
+      }
+      .meta {
+        font-size: 1.3rem;
+        .rating {
+          .pi {
+            color: orange;
+            margin-right: 10px;
+          }
+        }
+        .votes {
+          .pi {
+            margin-right: 10px;
+          }
+        }
+        .release-date {
+          .pi {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .description {
+        font-size: 1rem;
+        width: 60%;
+      }
+    }
+  }
+}

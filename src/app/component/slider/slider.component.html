@@ -1,0 +1,25 @@
+<div class="slider" *ngIf="movies$ | async as movies">
+  <div class="slide" *ngFor="let movie of movies.results">
+    <div class="slide-bg">
+      <img src="https://placehold.co/1280x600" alt="" />
+    </div>
+    <div class="slide-pane">
+      <h2 class="title">{{ movie.title }}</h2>
+      <div class="meta mb-4">
+        <div class="rating mb-1">
+          <i class="pi pi-star-fill"></i>
+          <span>{{ movie.vote_average }}</span>
+          <span>/10</span>
+        </div>
+        <div class="votes mb-1">
+          <i class="pi pi-users"></i>
+          <span>{{ movie.vote_count }}</span>
+        </div>
+        <div class="release-date">
+          <i class="pi pi-calendar"></i> {{ movie.release_date }}
+        </div>
+      </div>
+      <div class="description">{{ movie.overview }}</div>
+    </div>
+  </div>
+</div>
