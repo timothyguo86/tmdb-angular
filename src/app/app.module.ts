@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { ImageModule } from 'primeng/image'
 import { TabViewModule } from 'primeng/tabview'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -19,9 +20,9 @@ import { ShowDetailComponent } from './pages/show-detail/show-detail.component'
 import { MoviesService } from './services/movies.service'
 import { TvshowsService } from './services/tvshows.service'
 
-import { FooterComponent } from './shared/footer/footer.component'
-import { HeaderComponent } from './shared/header/header.component';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component'
+import { FooterComponent } from './shared/footer/footer.component'
+import { HeaderComponent } from './shared/header/header.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { VideoEmbedComponent } from './components/video-embed/video-embed.compon
     HttpClientModule,
     BrowserAnimationsModule,
     TabViewModule,
+    ImageModule,
   ],
   providers: [MoviesService, TvshowsService],
   bootstrap: [AppComponent],
