@@ -9,17 +9,9 @@ export class MoviesService {
   private apiKey = 'dadb019730c0075868955d1ec94040bb'
   constructor(private http: HttpClient) {}
 
-  getMoviesByType(type: string) {
-    return this.http.get<MoviesDto>(
-      `${this.apiUrl}/movie/${type}?api_key=${this.apiKey}`
-    )
-  getMoviesByType(type: string) {
+  getMoviesByType(type: string, count = 20) {
     return this.http
       .get<MoviesDto>(`${this.apiUrl}/movie/${type}?api_key=${this.apiKey}`)
-      .pipe(
-        map((data) => {
-          return data.results
-        })
-      )
+      .pipe(map((data) => data.results.slice(0, count)))
   }
 }

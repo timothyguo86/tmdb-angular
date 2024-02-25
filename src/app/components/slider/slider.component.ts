@@ -17,7 +17,7 @@ import { MoviesService } from '../../services/movies.service'
 export class SliderComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
-  movies$ = this.moviesService.getMoviesByType('popular')
+  movies$ = this.moviesService.getMoviesByType('popular', 10)
   slideIndex = 0
   imagesBaseUrl = imagesBaseUrl
 
