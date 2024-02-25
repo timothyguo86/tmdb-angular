@@ -8,8 +8,12 @@ header {
   .logo {
     padding-left: 1rem;
     a {
+      display: flex;
+      font-size: 1.4rem;
+      align-items: center;
       img {
         width: 50px;
+        margin-right: 0.5rem;
       }
     }
   }
