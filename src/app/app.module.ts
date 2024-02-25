@@ -20,7 +20,8 @@ import { MoviesService } from './services/movies.service'
 import { TvshowsService } from './services/tvshows.service'
 
 import { FooterComponent } from './shared/footer/footer.component'
-import { HeaderComponent } from './shared/header/header.component'
+import { HeaderComponent } from './shared/header/header.component';
+import { VideoEmbedComponent } from './components/video-embed/video-embed.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HeaderComponent } from './shared/header/header.component'
     BannerComponent,
     ShowItemComponent,
     ShowDetailComponent,
+    VideoEmbedComponent,
   ],
   imports: [
     BrowserModule,
