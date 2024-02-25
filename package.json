@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "upgrade-angular-libraries": "npx npm-check-updates --upgrade --target 'minor --filter '/@angular.*/"
+    "update-angular-libraries": "npx npm-check-updates --upgrade --target 'minor' --filter '/@angular.*/"
   },
   "private": true,
   "dependencies": {
