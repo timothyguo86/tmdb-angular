@@ -16,13 +16,16 @@ import { Movie } from '../../types/movie'
 })
 export class SliderComponent implements OnInit {
   @Input() slides: Movie[] = []
+  @Input() isHeader = false
 
   constructor() {}
   slideIndex = 0
   imagesBaseUrl = imagesBaseUrl
 
   ngOnInit() {
-    this.changeSlide()
+    if (!this.isHeader) {
+      this.changeSlide()
+    }
   }
 
   changeSlide() {
