@@ -1,4 +1,4 @@
-export type VideoDto = {
+export type VideosDto = {
   results: Video[]
   id: string
 }
