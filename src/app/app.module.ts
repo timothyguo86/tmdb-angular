@@ -9,7 +9,9 @@ import { HomeComponent } from './pages/home/home.component'
 import { MovieListComponent } from './pages/movie-list/movie-list.component'
 import { MoviesService } from './services/movies.service'
 import { FooterComponent } from './shared/footer/footer.component'
-import { HeaderComponent } from './shared/header/header.component'
+import { HeaderComponent } from './shared/header/header.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { ShowItemComponent } from './components/show-item/show-item.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { HeaderComponent } from './shared/header/header.component'
     HomeComponent,
     MovieListComponent,
     SliderComponent,
+    BannerComponent,
+    ShowItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+.show-item {
+  border: 1px solid #999;
+  border-radius: 5px;
+  display: block;
+  height: 375px;
+  position: relative;
+  &-image {
+    height: 325px;
+    img {
+      border-radius: 5px 5px 0 0;
+      height: 325px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  &-rating {
+    align-items: center;
+    background-color: black;
+    border-radius: 5px;
+    display: flex;
+    left: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+
+    .pi {
+      color: orange;
+      font-size: 1rem;
+      margin-right: 5px;
+    }
+  }
+
+  &-title {
+    align-items: center;
+    background-color: black;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    font-weight: 700;
+    height: 48px;
+    padding: 0 10px;
+  }
+}
