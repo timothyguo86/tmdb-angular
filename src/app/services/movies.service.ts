@@ -10,6 +10,10 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
   getMoviesByType(type: string) {
+    return this.http.get<MoviesDto>(
+      `${this.apiUrl}/movie/${type}?api_key=${this.apiKey}`
+    )
+  getMoviesByType(type: string) {
     return this.http
       .get<MoviesDto>(`${this.apiUrl}/movie/${type}?api_key=${this.apiKey}`)
       .pipe(
