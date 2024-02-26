@@ -77,4 +77,33 @@
         </div> </ng-container
     ></p-tabPanel>
   </p-tabView>
+
+  <ng-container *ngIf="showCasts$ | async as actors">
+    <p-carousel
+      [value]="actors"
+      [numVisible]="6"
+      [numScroll]="6"
+      [circular]="false"
+    >
+      <ng-template let-actor pTemplate="actor">
+        <div class="actor">
+          <img
+            *ngIf="actor.profile_path; else defaultActorPhoto"
+            [src]="imagesSizes.medium + actor.profile_path"
+            [alt]="actor.name"
+          />
+          <div>{{ actor.character }}</div>
+          <div>({{ actor.name }})</div>
+        </div>
+      </ng-template>
+    </p-carousel></ng-container
+  >
 </ng-container>
+
+<ng-container *ngIf="similarMovies$ | async as similarMovies">
+  <app-banner [shows]="similarMovies" title="Similar Movies" />
+</ng-container>
+
+<ng-template #defaultActorPhoto>
+  <img src="/assets/images/actor.jpg" alt="No Picture" />
+</ng-template>

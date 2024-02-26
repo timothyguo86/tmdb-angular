@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { ImageModule } from 'primeng/image'
 import { TabViewModule } from 'primeng/tabview'
+import { CarouselModule } from 'primeng/carousel'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -44,6 +45,7 @@ import { HeaderComponent } from './shared/header/header.component'
     BrowserAnimationsModule,
     TabViewModule,
     ImageModule,
+    CarouselModule,
   ],
   providers: [MoviesService, TvshowsService],
   bootstrap: [AppComponent],

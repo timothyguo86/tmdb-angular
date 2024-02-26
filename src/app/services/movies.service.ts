@@ -4,6 +4,7 @@ import { Movie, MoviesDto } from '../types/movie'
 import { map } from 'rxjs'
 import { VideosDto } from '../types/video'
 import { ImagesDto } from '../types/image'
+import { CreditsDto } from '../types/creedits'
 
 @Injectable()
 export class MoviesService {
@@ -14,6 +15,14 @@ export class MoviesService {
   getMoviesByType(type: string, count = 20) {
     return this.http
       .get<MoviesDto>(`${this.apiUrl}/movie/${type}?api_key=${this.apiKey}`)
+      .pipe(map((data) => data.results.slice(0, count)))
+  }
+
+  getSimilarMovies(id: string, count = 20) {
+    return this.http
+      .get<MoviesDto>(
+        `${this.apiUrl}/movie/${id}/similar?api_key=${this.apiKey}`
+      )
       .pipe(map((data) => data.results.slice(0, count)))
   }
 
@@ -37,5 +46,13 @@ export class MoviesService {
         `${this.apiUrl}/movie/${id}/images?api_key=${this.apiKey}`
       )
       .pipe(map((data) => data.backdrops))
+  }
+
+  getMovieCast(id: string) {
+    return this.http
+      .get<CreditsDto>(
+        `${this.apiUrl}/movie/${id}/credits?api_key=${this.apiKey}`
+      )
+      .pipe(map((data) => data.cast))
   }
 }
