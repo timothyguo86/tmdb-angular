@@ -29,17 +29,21 @@
             </div>
           </div>
 
-          <div class="stat">
-            <div class="label">Revenue:</div>
-            <div class="value">
-              {{ show.revenue | currency }}
+          <ng-container *ngIf="show.revenue">
+            <div class="stat">
+              <div class="label">Revenue:</div>
+              <div class="value">
+                {{ show.revenue | currency }}
+              </div>
             </div>
-          </div>
+          </ng-container>
 
-          <div class="stat">
-            <div class="label">Duration:</div>
-            <div class="value">{{ show.runtime }} min</div>
-          </div>
+          <ng-container *ngIf="show.runtime">
+            <div class="stat">
+              <div class="label">Duration:</div>
+              <div class="value">{{ show.runtime }} min</div>
+            </div>
+          </ng-container>
 
           <div class="stat">
             <div class="label">Status:</div>
@@ -52,7 +56,7 @@
             <div class="label">Genres:</div>
             <div class="value">
               <ng-container *ngFor="let genre of show.genres; let last = last">
-                <span>{{ genre.name }} </span>
+                <span>{{ genre.name }}</span>
                 <span *ngIf="!last">, </span>
               </ng-container>
             </div>
@@ -60,26 +64,28 @@
         </div>
       </div>
       <ng-container *ngIf="showCasts$ | async as actors">
-        <h2>Cast</h2>
-        <p-carousel
-          [value]="actors"
-          [numVisible]="8"
-          [numScroll]="8"
-          [responsiveOptions]="responsiveOptions"
-          [circular]="false"
-        >
-          <ng-template let-actor pTemplate="actor">
-            <div class="actor">
-              <img
-                *ngIf="actor.profile_path; else defaultActorPhoto"
-                [src]="imagesSizes.medium + actor.profile_path"
-                [alt]="actor.name"
-              />
-              <div>{{ actor.character }}</div>
-              <div>({{ actor.name }})</div>
-            </div>
-          </ng-template>
-        </p-carousel>
+        <ng-container *ngIf="actors.length !== 0">
+          <h2>Cast</h2>
+          <p-carousel
+            [value]="actors"
+            [numVisible]="8"
+            [numScroll]="8"
+            [responsiveOptions]="responsiveOptions"
+            [circular]="false"
+          >
+            <ng-template let-actor pTemplate="actor">
+              <div class="actor">
+                <img
+                  *ngIf="actor.profile_path; else defaultActorPhoto"
+                  [src]="imagesSizes.medium + actor.profile_path"
+                  [alt]="actor.name"
+                />
+                <div>{{ actor.character }}</div>
+                <div>({{ actor.name }})</div>
+              </div>
+            </ng-template>
+          </p-carousel>
+        </ng-container>
       </ng-container>
     </p-tabPanel>
 
@@ -122,5 +128,9 @@
 </ng-container>
 
 <ng-template #defaultActorPhoto>
-  <img src="/assets/images/actor.jpg" alt="No Picture" />
+  <img
+    src="/assets/images/actor.jpg"
+    alt="No Picture"
+    class="actor-placeholder-image"
+  />
 </ng-template>

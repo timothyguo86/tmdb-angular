@@ -17,6 +17,8 @@ export type Tvshow = {
   video: boolean
   vote_average: number
   vote_count: number
+  episode_run_time: string
+  type: string
 }
 
 export type TvshowsDto = {
@@ -31,6 +33,7 @@ export function mapToMovie(tvshow: Tvshow): Movie {
     ...tvshow,
     title: tvshow.name,
     original_title: tvshow.original_name,
+    release_date: tvshow.first_air_date,
   }
 }
 
