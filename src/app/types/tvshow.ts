@@ -26,6 +26,14 @@ export type TvshowsDto = {
   total_results: number
 }
 
+export function mapToMovie(tvshow: Tvshow): Movie {
+  return {
+    ...tvshow,
+    title: tvshow.name,
+    original_title: tvshow.original_name,
+  }
+}
+
 export function mapToMovies(tvshows: Tvshow[]): Movie[] {
   return tvshows.map((tvshow: Tvshow) => {
     return {
