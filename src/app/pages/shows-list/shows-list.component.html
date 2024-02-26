@@ -1,1 +1,22 @@
-<p>shows-list works!</p>
+<div class="container">
+  <div class="grid">
+    <div class="col-12">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="searchValue"
+          (change)="handleSearchChange()"
+        />
+      </span>
+    </div>
+  </div>
+  <ng-container *ngIf="showsList$ | async as showslist">
+    <div class="grid">
+      <div class="col-2" *ngFor="let show of showslist">
+        <app-show-item [showItem]="show" />
+      </div>
+    </div>
+  </ng-container>
+</div>

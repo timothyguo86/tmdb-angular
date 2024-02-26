@@ -59,7 +59,7 @@ export class MoviesService {
   searchMovies(page: number, searchValue?: string) {
     return this.http
       .get<MoviesDto>(
-        `${this.apiUrl}/search/movie?query=${searchValue}&page=${page}&api_key=${this.apiKey}`
+        `${this.apiUrl}/search/movie?query=${searchValue}&page=${page}&include_adult=true&api_key=${this.apiKey}`
       )
       .pipe(map((data) => data.results))
   }
