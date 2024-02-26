@@ -9,9 +9,14 @@
   </div>
   <div class="show-item-image">
     <img
+      *ngIf="showItem.poster_path; else defaultMoviePhoto"
       [src]="imagesBaseUrl + '/w342/' + showItem.poster_path"
       [alt]="showItem.title"
     />
   </div>
   <div class="show-item-title">{{ showItem.original_title }}</div>
 </a>
+
+<ng-template #defaultMoviePhoto>
+  <img src="/assets/images/movie.png" alt="No Picture" />
+</ng-template>
