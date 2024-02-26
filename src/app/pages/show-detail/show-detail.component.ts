@@ -10,6 +10,12 @@ import { Actor } from '../../types/creedits'
 import { TvshowsService } from '../../services/tvshows.service'
 import { mapToMovie, mapToMovies } from '../../types/tvshow'
 
+interface responsiveOption {
+  breakpoint: string
+  numVisible: number
+  numScroll: number
+}
+
 @Component({
   selector: 'app-show-detail',
   templateUrl: './show-detail.component.html',
@@ -24,7 +30,9 @@ export class ShowDetailComponent implements OnInit {
   showImages$: Observable<Image[]> | null = null
   showCasts$: Observable<Actor[]> | null = null
   similarMovies$: Observable<Movie[]> | null = null
+
   imagesSizes = IMAGES_SIZES
+  responsiveOptions: responsiveOption[] = []
 
   constructor(
     private router: ActivatedRoute,
@@ -33,6 +41,28 @@ export class ShowDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 8,
+        numScroll: 8,
+      },
+      {
+        breakpoint: '1200px',
+        numVisible: 6,
+        numScroll: 6,
+      },
+      {
+        breakpoint: '992px',
+        numVisible: 5,
+        numScroll: 5,
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 3,
+        numScroll: 3,
+      },
+    ]
     // this.showId = this.router.snapshot.params['id']
     this.router.params.subscribe((params) => {
       this.showId = params['id']

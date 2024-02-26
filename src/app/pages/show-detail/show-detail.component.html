@@ -1,17 +1,16 @@
 <ng-container *ngIf="show$ | async as show">
   <app-slider [slides]="[show]" [isHeader]="true" />
-
   <p-tabView>
     <p-tabPanel header="Overview">
       <div class="grid">
-        <div class="col-3">
+        <div class="col-4 md:col-3 lg:col-2">
           <img
             class="poster"
             [src]="imagesSizes.medium + show.poster_path"
             [alt]="show.title"
           />
         </div>
-        <div class="col-9">
+        <div class="col-8 md:col-9 lg:col-10">
           <h2>Overview</h2>
           <p class="overview">{{ show.overview }}</p>
           <div class="stat">
@@ -53,20 +52,50 @@
           </div>
         </div>
       </div>
+      <ng-container *ngIf="showCasts$ | async as actors">
+        <h2>Cast</h2>
+        <p-carousel
+          [value]="actors"
+          [numVisible]="8"
+          [numScroll]="8"
+          [responsiveOptions]="responsiveOptions"
+          [circular]="false"
+        >
+          <ng-template let-actor pTemplate="actor">
+            <div class="actor">
+              <img
+                *ngIf="actor.profile_path; else defaultActorPhoto"
+                [src]="imagesSizes.medium + actor.profile_path"
+                [alt]="actor.name"
+              />
+              <div>{{ actor.character }}</div>
+              <div>({{ actor.name }})</div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </ng-container>
     </p-tabPanel>
+
     <p-tabPanel header="Videos">
       <ng-container *ngIf="showVideos$ | async as showVideos">
         <div class="grid">
-          <div class="col-4" *ngFor="let showVideo of showVideos">
+          <div
+            class="col-12 md:col-6 lg:col-4"
+            *ngFor="let showVideo of showVideos"
+          >
             <app-video-embed [key]="showVideo.key" />
           </div>
         </div>
       </ng-container>
     </p-tabPanel>
+
     <p-tabPanel header="Photos">
       <ng-container *ngIf="showImages$ | async as showImages">
         <div class="grid">
-          <div class="col-2" *ngFor="let showImage of showImages">
+          <div
+            class="col-12 md:col-6 lg:col-4 xl:col-3"
+            *ngFor="let showImage of showImages"
+          >
             <p-image
               [src]="imagesSizes.large + showImage.file_path"
               [alt]="show.title"
@@ -77,27 +106,6 @@
         </div> </ng-container
     ></p-tabPanel>
   </p-tabView>
-
-  <ng-container *ngIf="showCasts$ | async as actors">
-    <p-carousel
-      [value]="actors"
-      [numVisible]="6"
-      [numScroll]="6"
-      [circular]="false"
-    >
-      <ng-template let-actor pTemplate="actor">
-        <div class="actor">
-          <img
-            *ngIf="actor.profile_path; else defaultActorPhoto"
-            [src]="imagesSizes.medium + actor.profile_path"
-            [alt]="actor.name"
-          />
-          <div>{{ actor.character }}</div>
-          <div>({{ actor.name }})</div>
-        </div>
-      </ng-template>
-    </p-carousel></ng-container
-  >
 </ng-container>
 
 <ng-container *ngIf="similarMovies$ | async as similarMovies">
