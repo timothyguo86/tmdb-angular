@@ -5,8 +5,10 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { CarouselModule } from 'primeng/carousel'
+import { DividerModule } from 'primeng/divider'
 import { ImageModule } from 'primeng/image'
 import { InputTextModule } from 'primeng/inputtext'
+import { PaginatorModule } from 'primeng/paginator'
 import { TabViewModule } from 'primeng/tabview'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -50,6 +52,8 @@ import { HeaderComponent } from './shared/header/header.component'
     CarouselModule,
     InputTextModule,
     FormsModule,
+    PaginatorModule,
+    DividerModule,
   ],
   providers: [MoviesService, TvshowsService],
   bootstrap: [AppComponent],

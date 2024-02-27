@@ -15,6 +15,10 @@
     }
   }
 
+  .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+    background-color: $primary-color;
+  }
+
   .poster {
     width: 100%;
   }

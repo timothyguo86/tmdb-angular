@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { MoviesService } from '../../services/movies.service'
 import { Observable } from 'rxjs'
-import { Movie } from '../../types/movie'
+
+import { MoviesService } from '../../services/movies.service'
+import { MoviesDto } from '../../types/movie'
+import { PaginatorState } from 'primeng/paginator'
 
 @Component({
   selector: 'app-shows-list',
@@ -9,9 +11,9 @@ import { Movie } from '../../types/movie'
   styleUrl: './shows-list.component.scss',
 })
 export class ShowsListComponent implements OnInit {
-  showsList$: Observable<Movie[]> | null = null
-
+  showsList$: Observable<MoviesDto> | null = null
   searchValue = ''
+  first = 0
 
   constructor(private moviesService: MoviesService) {}
 
@@ -19,11 +21,20 @@ export class ShowsListComponent implements OnInit {
     this.getPagedShows(1)
   }
 
-  getPagedShows(page: number, searchTerm?: string) {
-    this.showsList$ = this.moviesService.searchMovies(page, searchTerm)
+  handleSearchChange() {
+    this.first = 0
+    this.getPagedShows(1, this.searchValue)
   }
 
-  handleSearchChange() {
-    this.getPagedShows(1, this.searchValue)
+  handlePageChange(event: PaginatorState) {
+    this.first = event.first ? event.first : 0
+
+    const pageNumber = event.page ? event.page + 1 : 1
+
+    this.getPagedShows(pageNumber, this.searchValue)
+  }
+
+  getPagedShows(page: number, searchTerm?: string) {
+    this.showsList$ = this.moviesService.searchMovies(page, searchTerm)
   }
 }

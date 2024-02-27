@@ -65,7 +65,9 @@
       </div>
       <ng-container *ngIf="showCasts$ | async as actors">
         <ng-container *ngIf="actors.length !== 0">
-          <h2>Cast</h2>
+          <p-divider align="center">
+            <h1>Cast</h1>
+          </p-divider>
           <p-carousel
             [value]="actors"
             [numVisible]="8"
