@@ -1,27 +1,50 @@
-# TmdbAngular
+# TMDB Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+`TMDB Angular` is a single-page web application built with [Angular 17](https://angular.io/) and [PrimeNG](https://primeng.org/) framework, leveraging the [TMDB v3 API](https://developer.themoviedb.org/docs/getting-started). It serves as a comprehensive movie and TV shows database, providing users with real-time access to a vast collection of entertainment content.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Real-time Data**: Fetches data in real-time from the [TMDB v3 API](https://developer.themoviedb.org/docs/getting-started), ensuring users have access to the latest information about movies and TV shows.
+- **User-friendly Interface**: Offers an intuitive and visually appealing user interface, making it easy for users to browse and discover their favorite content.
+- **Filter and Search**: Users can filter and search for movies and TV shows based on various criteria such as genre, release date, and ratings, making it convenient to find content tailored to their preferences.
+- **Responsive Design**: Designed to be responsive, ensuring a consistent and enjoyable user experience across devices of different screen sizes.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run `TMDB Angular` locally, follow these steps:
 
-## Build
+1. **Clone the Repository**:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```bash
+   git clone https://github.com/timothyguo86/tmdb-angular.git
+   cd TMDB-Angular
+   ```
 
-## Running unit tests
+2. **Install Dependencies**:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```bash
+   npm install
+   ```
 
-## Running end-to-end tests
+3. **Run the Application**:
+   ```bash
+   npm start
+   ```
+   The application will be accessible at [http://localhost:4200/](http://localhost:4200/) by default.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Dependencies
 
-## Further help
+`TMDB Angular` relies on the following key dependencies:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [Angular 17](https://angular.io/)
+- [PrimeNG](https://primeng.org/)
+
+Make sure to refer to their documentation for any additional configuration or customization.
+
+## License
+
+`TMDB Angular` is open-source software licensed under the MIT license.
+
+## Acknowledgments
+
+`TMDB Angular` is made possible thanks to the contributions of the open-source community and the availability of the TMDB v3 API.
