@@ -11,7 +11,7 @@ import { mapToMovies } from '../../types/tvshow'
 })
 export class HomeComponent {
   popularMovies$ = this.moviesService.getMoviesByType('popular', 12)
-  upcomingMovies$ = this.moviesService.getMoviesByType('upcoming', 12)
+  // upcomingMovies$ = this.moviesService.getMoviesByType('upcoming', 12)
   topRatedMovies$ = this.moviesService.getMoviesByType('top_rated', 12)
   popularTvshows$ = this.tvshowsService
     .getTvShowsByType('popular', 12)
