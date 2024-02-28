@@ -68,25 +68,28 @@ export class ShowDetailComponent implements OnInit {
     this.router.params.subscribe((params) => {
       this.showId = params['id']
       this.showType = params['type']
-    })
-    if (this.showType === 'movie') {
-      this.show$ = this.MoviesService.getMovieById(this.showId)
-      this.showVideos$ = this.MoviesService.getMovieVideos(this.showId)
-      this.showImages$ = this.MoviesService.getMovieImages(this.showId)
-      this.showCasts$ = this.MoviesService.getMovieCast(this.showId)
-      this.similarMovies$ = this.MoviesService.getSimilarMovies(this.showId, 12)
-    }
+      if (this.showType === 'movie') {
+        this.show$ = this.MoviesService.getMovieById(this.showId)
+        this.showVideos$ = this.MoviesService.getMovieVideos(this.showId)
+        this.showImages$ = this.MoviesService.getMovieImages(this.showId)
+        this.showCasts$ = this.MoviesService.getMovieCast(this.showId)
+        this.similarMovies$ = this.MoviesService.getSimilarMovies(
+          this.showId,
+          12
+        )
+      }
 
-    if (this.showType === 'tv') {
-      this.show$ = this.tvService
-        .getTvshowById(this.showId)
-        .pipe(map(mapToMovie))
-      this.showVideos$ = this.tvService.getTvshowVideos(this.showId)
-      this.showImages$ = this.tvService.getTvshowImages(this.showId)
-      this.showCasts$ = this.tvService.getTvshowCast(this.showId)
-      this.similarMovies$ = this.tvService
-        .getSimilarTvshows(this.showId, 12)
-        .pipe(map(mapToMovies))
-    }
+      if (this.showType === 'tv') {
+        this.show$ = this.tvService
+          .getTvshowById(this.showId)
+          .pipe(map(mapToMovie))
+        this.showVideos$ = this.tvService.getTvshowVideos(this.showId)
+        this.showImages$ = this.tvService.getTvshowImages(this.showId)
+        this.showCasts$ = this.tvService.getTvshowCast(this.showId)
+        this.similarMovies$ = this.tvService
+          .getSimilarTvshows(this.showId, 12)
+          .pipe(map(mapToMovies))
+      }
+    })
   }
 }
