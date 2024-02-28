@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core'
-import { Observable } from 'rxjs'
+import { ActivatedRoute } from '@angular/router'
+import { PaginatorState } from 'primeng/paginator'
+import { Observable, map } from 'rxjs'
 
 import { MoviesService } from '../../services/movies.service'
+import { TvshowsService } from '../../services/tvshows.service'
 import { MoviesDto } from '../../types/movie'
-import { PaginatorState } from 'primeng/paginator'
+import { mapToMoviesDto } from '../../types/tvshow'
 
 @Component({
   selector: 'app-shows-list',
@@ -14,27 +17,40 @@ export class ShowsListComponent implements OnInit {
   showsList$: Observable<MoviesDto> | null = null
   searchValue = ''
   first = 0
+  showType: 'tv' | 'movie' = 'movie'
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(
+    private moviesService: MoviesService,
+    private tvshowsService: TvshowsService,
+    private router: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.getPagedShows(1)
+    this.router.params.subscribe((params) => {
+      this.showType = params['type']
+      this.updateShowsList(1)
+      console.log(this.showType)
+    })
   }
 
   handleSearchChange() {
     this.first = 0
-    this.getPagedShows(1, this.searchValue)
+    this.updateShowsList(1)
   }
 
   handlePageChange(event: PaginatorState) {
     this.first = event.first ? event.first : 0
-
     const pageNumber = event.page ? event.page + 1 : 1
-
-    this.getPagedShows(pageNumber, this.searchValue)
+    this.updateShowsList(pageNumber)
   }
-
-  getPagedShows(page: number, searchTerm?: string) {
-    this.showsList$ = this.moviesService.searchMovies(page, searchTerm)
+  updateShowsList(page: number) {
+    const searchTerm = this.searchValue.trim()
+    if (this.showType === 'movie') {
+      this.showsList$ = this.moviesService.searchMovies(page, searchTerm)
+    } else if (this.showType === 'tv') {
+      this.showsList$ = this.tvshowsService
+        .searchTvshows(page, searchTerm)
+        .pipe(map(mapToMoviesDto))
+    }
   }
 }
