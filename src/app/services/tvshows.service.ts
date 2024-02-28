@@ -47,4 +47,11 @@ export class TvshowsService {
       .get<CreditsDto>(`${this.apiUrl}/tv/${id}/credits?api_key=${this.apiKey}`)
       .pipe(map((data) => data.cast))
   }
+  searchTvshows(page: number, searchValue?: string) {
+    const url = searchValue ? 'search/tv' : 'tv/popular'
+
+    return this.http.get<TvshowsDto>(
+      `${this.apiUrl}/${url}?query=${searchValue}&page=${page}&include_adult=true&api_key=${this.apiKey}`
+    )
+  }
 }
