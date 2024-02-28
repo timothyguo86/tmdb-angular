@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { MoviesService } from '../../services/movies.service'
 import { Observable, map } from 'rxjs'
-import { Movie } from '../../types/movie'
+
 import { IMAGES_SIZES } from '../../constants/images-sizes'
-import { Video } from '../../types/video'
-import { Image } from '../../types/image'
-import { Actor } from '../../types/creedits'
+import { MoviesService } from '../../services/movies.service'
 import { TvshowsService } from '../../services/tvshows.service'
+import { Actor } from '../../types/creedits'
+import { Image } from '../../types/image'
+import { Movie } from '../../types/movie'
 import { mapToMovie, mapToMovies } from '../../types/tvshow'
+import { Video } from '../../types/video'
 
 interface responsiveOption {
   breakpoint: string
