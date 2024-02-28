@@ -28,8 +28,8 @@ export class ShowsListComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe((params) => {
       this.showType = params['type']
+      this.searchValue = ''
       this.updateShowsList(1)
-      console.log(this.showType)
     })
   }
 
@@ -43,6 +43,7 @@ export class ShowsListComponent implements OnInit {
     const pageNumber = event.page ? event.page + 1 : 1
     this.updateShowsList(pageNumber)
   }
+
   updateShowsList(page: number) {
     const searchTerm = this.searchValue.trim()
     if (this.showType === 'movie') {
