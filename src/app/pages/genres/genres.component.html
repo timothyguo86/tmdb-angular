@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="grid">
+    <div class="col-12 genres-link">
+      <ng-container *ngIf="genres$ | async as genres">
+        <a
+          *ngFor="let genre of genres"
+          (keydown)="findByGenre(genre.id)"
+          (click)="findByGenre(genre.id)"
+          role="button"
+          aria-hidden="true"
+        >
+          {{ genre.name }}
+        </a>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-container *ngIf="shows$ | async as shows">
+    <div class="grid show-list-container">
+      <ng-container *ngFor="let show of shows.results">
+        <app-show-item
+          [showItem]="show"
+          class="col-6 md:col-4 lg:col-3 xl:col-2"
+        />
+      </ng-container>
+    </div>
+
+    <p-paginator
+      [rows]="20"
+      [first]="first"
+      (onPageChange)="handlePageChange($event)"
+      [totalRecords]="shows.total_results"
+    ></p-paginator>
+  </ng-container>
+</div>
