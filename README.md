@@ -1,6 +1,6 @@
 # TMDB Angular
 
-`TMDB Angular` is a single-page web application built with [Angular 17](https://angular.io/) and [PrimeNG](https://primeng.org/) framework, leveraging the [TMDB v3 API](https://developer.themoviedb.org/docs/getting-started). It serves as a comprehensive movie and TV shows database, providing users with real-time access to a vast collection of entertainment content.
+[TMDB Angular](https://timothyguo86.github.io/tmdb-angular/) is a single-page web application built with [Angular 17](https://angular.io/) and [PrimeNG](https://primeng.org/) framework, leveraging the [TMDB v3 API](https://developer.themoviedb.org/docs/getting-started). It serves as a comprehensive movie and TV shows database, providing users with real-time access to a vast collection of entertainment content.
 
 ## Features
 
@@ -11,7 +11,7 @@
 
 ## Getting Started
 
-To run `TMDB Angular` locally, follow these steps:
+To run [TMDB Angular](https://timothyguo86.github.io/tmdb-angular/) locally, follow these steps:
 
 1. **Clone the Repository**:
 
@@ -34,7 +34,7 @@ To run `TMDB Angular` locally, follow these steps:
 
 ## Dependencies
 
-`TMDB Angular` relies on the following key dependencies:
+[TMDB Angular](https://timothyguo86.github.io/tmdb-angular/) relies on the following key dependencies:
 
 - [Angular 17](https://angular.io/)
 - [PrimeNG](https://primeng.org/)
@@ -43,8 +43,8 @@ Make sure to refer to their documentation for any additional configuration or cu
 
 ## License
 
-`TMDB Angular` is open-source software licensed under the MIT license.
+[TMDB Angular](https://timothyguo86.github.io/tmdb-angular/) is open-source software licensed under the MIT license.
 
 ## Acknowledgments
 
-`TMDB Angular` is made possible thanks to the contributions of the open-source community and the availability of the TMDB v3 API.
+[TMDB Angular](https://timothyguo86.github.io/tmdb-angular/) is made possible thanks to the contributions of the open-source community and the availability of the TMDB v3 API.
