@@ -1,6 +1,7 @@
 {
   "homepage": "https://timothyguo86.github.io/tmdb-angular/",
   "name": "tmdb-angular",
+  "description": "Angular version of TMDB",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,6 +11,19 @@
     "test": "ng test",
     "lint": "ng lint",
     "update-angular-libraries": "npx npm-check-updates --upgrade --target 'minor' --filter '/@angular.*/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timothyguo86/tmdb-angular"
+  },
+  "keywords": [
+    "TMDB",
+    "angular"
+  ],
+  "author": "Timothy Guo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timothyguo86/tmdb-angular/issues"
   },
   "private": true,
   "dependencies": {
