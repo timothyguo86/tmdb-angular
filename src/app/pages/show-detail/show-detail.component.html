@@ -125,7 +125,11 @@
 
 <ng-container *ngIf="similarMovies$ | async as similarMovies">
   <ng-container *ngIf="similarMovies.length !== 0">
-    <app-banner [shows]="similarMovies" title="You May Also Like" />
+    <app-banner
+      [shows]="similarMovies"
+      title="You May Also Like"
+      [showType]="showType"
+    />
   </ng-container>
 </ng-container>
 
